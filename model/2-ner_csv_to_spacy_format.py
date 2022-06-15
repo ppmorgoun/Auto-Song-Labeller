@@ -16,56 +16,62 @@ output_path = '/Users/petr/Documents/fun_stuff/auto_song_labeller/data/nerData_l
 entities = {"SONG": "ARTIST"}
 
 for idx, row in df.iterrows():
-    song = str(row[0]).strip()# turn song name into a string in case it isn't, and strip leading/trailing whitespace
-    #song = clean_text(song) # remove non alphanumeric characters and make lowercase
-    artist = str(row[1]).strip() # same for artist name
-    #artist = clean_text(artist) # remove non alphanumeric characters and make lowercase
-    
-    try: # fetching the length of the song name if it exists
+    # turn song name into a string in case it isn't, and strip
+    # leading/trailing whitespace
+    song = str(row[0]).strip()
+    # song = clean_text(song) # remove non alphanumeric characters and make
+    # lowercase
+    artist = str(row[1]).strip()  # same for artist name
+    # artist = clean_text(artist) # remove non alphanumeric characters and
+    # make lowercase
+
+    try:  # fetching the length of the song name if it exists
         len_song = len(song)
-    except:
+    except BaseException:
         len_song = 0
-    try: # fetching the length of the artist name if it exists    
+    try:  # fetching the length of the artist name if it exists
         len_artist = len(artist)
-    except:
+    except BaseException:
         len_artist = 0
-    
+
     #text = song + ' - ' + artist
     songFirst = True
     if len_song != 0 and len_artist != 0:
-        if random.random() <= 0.5: # making it so the artist is first 50% of the time
+        if random.random() <= 0.5:  # making it so the artist is first 50% of the time
             cleanText = song + ' - ' + artist
         else:
             cleanText = artist + ' - ' + song
             songFirst = False
     else:
         cleanText = song
-        
-    if random.random() <= 0.05: # adding some non-entity strings to roughly match the frequency in youtube videos
+
+    if random.random() <= 0.05:  # adding some non-entity strings to roughly match the frequency in youtube videos
         cleanText += ' (OFFICIAL MUSIC VIDEO)'
     dict_value = []
-    
+
     raw_text.append(cleanText)
     # In the case where neither song nor artist is None:
-    if song != None and artist != None:
+    if song is not None and artist is not None:
         ents = []
         for songEnt, artistEnt in entities.items():
             if songFirst:
                 ent_song = (0, len_song, songEnt)
                 ents.append(ent_song)
 
-                ent_artist = (len_song+3, len_song+3+len_artist, artistEnt) # with dash
+                ent_artist = (
+                    len_song + 3,
+                    len_song + 3 + len_artist,
+                    artistEnt)  # with dash
                 ents.append(ent_artist)
             else:
-                ent_song = (len_artist+3, len_artist+3+len_song, songEnt)
+                ent_song = (len_artist + 3, len_artist + 3 + len_song, songEnt)
                 ents.append(ent_song)
 
-                ent_artist = (0, len_artist, artistEnt) # with dash
+                ent_artist = (0, len_artist, artistEnt)  # with dash
                 ents.append(ent_artist)
 
-        
     # for the case where there is only a song name:
-    elif song != None:
+    elif song is not None:
         ents = []
         for songEnt, _ in entities.items():
             ent_song = (0, len_song, songEnt)
@@ -76,7 +82,7 @@ for idx, row in df.iterrows():
     else:
         ents = []
         for _, artistEnt in entities.items():
-            ent_artist = (0, len_artist, artistEnt) # with dash
+            ent_artist = (0, len_artist, artistEnt)  # with dash
 
             ents.append(ent_artist)
 
@@ -88,4 +94,5 @@ for idx, row in df.iterrows():
 
 with open(output_path, 'w') as f:
     f.write(json.dumps(trainData))
-print(f"Created text file with 10,000 songs and artists, saved to {output_path}")
+print(
+    f"Created text file with 10,000 songs and artists, saved to {output_path}")

@@ -30,7 +30,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="Logo" width="200" height="200">
   </a>
 
   <h3 align="center">Auto-Song-Labeller</h3>
@@ -38,14 +38,12 @@
   <p align="center">
     For all your song labelling needs*
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/ppmorgoun/Auto-Song-Labeller/blob/main/README.md"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/ppmorgoun/Auto-Song-Labeller/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/ppmorgoun/Auto-Song-Labeller/issues">Request Feature</a>
   </p>
 </div>
 
@@ -84,9 +82,9 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Do you have a large swathe songs you downloaded via dubiously legal youtube-to-mp3 websites in the early to mid 2000's with song titles such as:
+Do you have a large swathe of songs you downloaded via dubiously legal youtube-to-mp3 websites in the early to mid 2000's with song titles such as:
 
-"Breaking the Habit - Lincoln Park [OFFICIAL MUSIC VIDEO]" 
+Breaking the Habit - Lincoln Park [OFFICIAL MUSIC VIDEO] 
 
 or:
 
@@ -98,7 +96,7 @@ Then welcome – this app is for you!
 
 Here's how I did it:
 * I used a subset of the [Million Song Dataset](http://millionsongdataset.com/) to build a custom dataset for Named Entity Recognition 
-* I finetuned Spacy's large english model on this custom dataset, teaching the model to identify song titles and artist names from text, achieving >90% accuracy on my test dataset
+* I fine-tuned Spacy's large english model on this custom dataset, teaching the model to identify song titles and artist names from text, achieving >90% accuracy on my test dataset
 * Using Mutagen to directly edit audio metadata, I walk through your directory and directly edit the metadata tags with the song name and artist
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -128,8 +126,6 @@ To get a local copy up and running follow these simple example steps.
 1. Your music that you wish to label _must_ have both the song name and title in the filename for the NER algorithm to work
 
 ### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
 1. Clone the repo and navigate into it's root directory
    ```sh
