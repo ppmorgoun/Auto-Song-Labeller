@@ -1,0 +1,30 @@
+{
+    "os": "macOS-10.15.7-x86_64-i386-64bit",
+    "python": "3.8.1",
+    "heartbeatAt": "2022-06-16T01:38:51.577486",
+    "startedAt": "2022-06-16T01:38:50.058952",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [
+        "train",
+        "config.cfg",
+        "--output",
+        "/Users/petr/Documents/fun_stuff/auto_song_labeller/model/output/",
+        "--paths.train",
+        "/Users/petr/Documents/fun_stuff/auto_song_labeller/data/train.spacy",
+        "--paths.dev",
+        "/Users/petr/Documents/fun_stuff/auto_song_labeller/data/val.spacy"
+    ],
+    "state": "running",
+    "program": "-m spacy.__main__",
+    "git": {
+        "remote": "https://github.com/ppmorgoun/Auto-Song-Labeller.git",
+        "commit": "43e286f3ea80391418834edff44aa73f19cd3b35"
+    },
+    "email": "ppmorgoun@gmail.com",
+    "root": "/Users/petr/Documents/fun_stuff/auto_song_labeller",
+    "host": "Petrs-MBP",
+    "username": "petr",
+    "executable": "/Users/petr/Documents/fun_stuff/auto_song_labeller/nerAL/bin/python"
+}

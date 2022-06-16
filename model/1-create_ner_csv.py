@@ -3,9 +3,9 @@ import fnmatch
 import os
 import pandas as pd
 import numpy as np
-import hdf5_getters as getters
 import sys
 sys.path.append('/Users/petr/Documents/fun_stuff/auto_song_labeller/modules/')
+import hdf5_getters as getters
 
 df = pd.DataFrame(columns=['Song Name', 'Artist'])
 
