@@ -7,6 +7,9 @@ import json
 import re
 import pickle
 import pandas as pd
+import sys
+sys.path.append('/Users/petr/Documents/fun_stuff/auto_song_labeller/modules/')
+import clean_text as ct
 
 df = pd.read_csv("../data/MSD.csv", index_col=0)
 trainData = []
@@ -19,11 +22,9 @@ for idx, row in df.iterrows():
     # turn song name into a string in case it isn't, and strip
     # leading/trailing whitespace
     song = str(row[0]).strip()
-    # song = clean_text(song) # remove non alphanumeric characters and make
-    # lowercase
+    #song = ct.clean_text(song) # remove non alphanumeric characters excluding the dash "-" and make lowercase
     artist = str(row[1]).strip()  # same for artist name
-    # artist = clean_text(artist) # remove non alphanumeric characters and
-    # make lowercase
+    #artist = ct.clean_text(artist) # remove non alphanumeric characters excluding the dash "-" and make lowercase
 
     try:  # fetching the length of the song name if it exists
         len_song = len(song)
